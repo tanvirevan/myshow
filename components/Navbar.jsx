@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import SignInOut from "./auth/SingInOut";
 
 
 export default function Navbar()
@@ -20,6 +21,7 @@ export default function Navbar()
           </div>
 
           <ul className="flex gap-4 text-[#9C9C9C]">
+            <li className="hover:text-white "><SignInOut /></li>
             <Link href="/" className="hover:text-white ">About</Link>
             <Link href="/" className="hover:text-white">Contact Us</Link>
           </ul>

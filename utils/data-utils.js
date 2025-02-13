@@ -1,13 +1,7 @@
+// Optimize the MongoDB ID transformation functions
 export const replaceMongoIdInArray = (array) =>
-  array.map(({ _id, ...rest }) => 
-    ({
-      id: _id.toString(),
-      ...rest,
-    }));
+  Array.isArray(array) ? array.map(replaceMongoIdInObject) : [];
 
-export const replaceMongoIdInObject = (obj) =>
-  {
-    const {_id, ...updatedObj} = {...obj, id: obj._id.toString()};
-    return updatedObj;
-  }
+export const replaceMongoIdInObject = (doc) =>
+  doc?._id ? { id: doc._id.toString(), ...doc } : null;
 

@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import connectDB from "@/services/mongo";
+import AuthProvider from "./providers/AuthProvider";
 
 export const metadata = 
   {
@@ -14,10 +15,12 @@ export  default async function RootLayout({ children })
     return (
       <html lang="en">
         <body>
-          <Navbar />
-          <main className="py-8">
-            {children}
-          </main>
+          <AuthProvider>
+            <Navbar />
+            <main className="py-8">
+              {children}
+            </main>
+          </AuthProvider>
         </body>
       </html>
     );

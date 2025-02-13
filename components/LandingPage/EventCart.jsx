@@ -1,5 +1,4 @@
 import Image from "next/image";
-import EventImg from "@/public/google-io-2023-1.png";
 import ActionButtons from "../ActionButtons";
 
 export default function EventCart({event})
